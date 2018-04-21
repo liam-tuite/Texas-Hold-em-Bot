@@ -1,0 +1,8 @@
+This is a personal project I spent some time working on. I managed to code a bot that can play Texas hold'em, but not very well. It tended to act fairly sensibly pre-flop, but often got caught in dangerous situations post-flop by either failing to call a bluff or by over-valuing its hand. I have scrapped the post-flop mechanism and have yet to complete an upgraded version, so this version of the bot can only play pre-flop. The bot is written for one particular online poker site. The bot knows where to look for relevant information (i.e. which pixels on the screen contain information, such as cards) and can capture a screenshot of this information. The screenshots are compared with hard-coded byte arrays that represent things like cards or bankroll digits. As the image bytes are hard-coded, the bot is only written to work on my computer.
+
+The general repeating algorithm is:
+1. The bot continuously checks if it is its turn
+2. If so, it gathers all of the information that might be needed
+3. The bot calculates the best move to make based on the current game-state and makes that move.
+
+The hard part is step 3. Defining a procedure to find the best play to make is very complicated. I haven't implemented opponent-modelling, which I believe is necessary to have a successful poker bot. In theory, the program could track data for each player it encounters and statistically analyse each player's range of hands, or likelihood of bluffing at certain stages of the game. The kind of opponents that the bot is currently against could then change the range of hands played or the betting strategy employed by the bot.
